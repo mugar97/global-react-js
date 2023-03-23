@@ -87,48 +87,49 @@ class SearchForm extends React.Component<SearchFormProps> {
     }
 }
 
-interface GenreSelectProps {
+interface GenreFilterProps {
     genres: string[],
     selectedGenre: string,
     onSelect: (genre: string) => void
 }
 
-interface GenreSelectState {
-    activeGenre: string
+interface GenreFilterState {
+    selectedGenre: string
 }
 
-class GenreSelect extends React.Component<GenreSelectProps> {
-    state: GenreSelectState;
+class GenreFilter extends React.Component<GenreFilterProps> {
+    state: GenreFilterState;
 
-    constructor(props: GenreSelectProps) {
+    constructor(props: GenreFilterProps) {
         super(props);
         this.state = {
-            activeGenre: props.selectedGenre.toLowerCase()
+            selectedGenre: props.selectedGenre.toLowerCase()
         };
     }
 
     select = () => {
-        this.props.onSelect(this.state.activeGenre)
+        this.props.onSelect(this.state.selectedGenre)
     }
 
     render() {
         const { genres, selectedGenre } = this.props;
         return (
-            <div id="genre">
-                <label htmlFor="genre-select">Genre:</label>
-                <select
-                    id="genre-select"
-                    defaultValue={selectedGenre.toLowerCase()}
-                >
+            <div id="genreFilter">
+                <ul>
+                    <li
+                        value="ALL"
+                        key="all"
+                        className={this.props.genres.includes(selectedGenre) ? "" : "selected"}
+                    >ALL</li>
+                    
                     {genres.map((genre, key) => {
                         return (
-                            <option
-                                value={genre.toLowerCase()}
-                                key={key}
-                            >{genre}</option>
+                            <li
+                                key={genre.toLowerCase()}
+                            >{genre.toUpperCase()}</li>
                         );
                     })}
-                </select>
+                </ul>
             </div>
         );
     }
@@ -141,7 +142,7 @@ class App extends React.Component {
         <div>
             <Counter initialValue={0} />
             <SearchForm initialSearchQuery="My initial query" onSearch={(query)=>{console.log(`search callback: ${query}`)}}/>
-            <GenreSelect genres={["Crime", "Documentary", "Horror", "Comedy"]} selectedGenre="Comedy" onSelect={(genre)=>{console.log(`genre callback: ${genre}`)}}/>
+            <GenreFilter genres={["Crime", "Documentary", "Horror", "Comedy"]} selectedGenre="Comedy" onSelect={(genre)=>{console.log(`genre callback: ${genre}`)}}/>
         </div>
        );
     }
