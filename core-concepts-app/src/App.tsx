@@ -117,15 +117,15 @@ class GenreFilter extends React.Component<GenreFilterProps> {
             <div id="genreFilter">
                 <ul>
                     <li
-                        value="ALL"
                         key="all"
-                        className={this.props.genres.includes(selectedGenre) ? "" : "selected"}
+                        className={`${this.props.genres.includes(selectedGenre) ? "" : "active"}`}
                     >ALL</li>
                     
-                    {genres.map((genre, key) => {
+                    {genres.map((genre) => {
                         return (
                             <li
                                 key={genre.toLowerCase()}
+                                className={`${this.state.selectedGenre === genre.toLowerCase() ? "active" : ""}`}
                             >{genre.toUpperCase()}</li>
                         );
                     })}
@@ -139,10 +139,10 @@ class GenreFilter extends React.Component<GenreFilterProps> {
 class App extends React.Component {
     render() {
        return (
-        <div>
+        <div className="App">
             <Counter initialValue={0} />
             <SearchForm initialSearchQuery="My initial query" onSearch={(query)=>{console.log(`search callback: ${query}`)}}/>
-            <GenreFilter genres={["Crime", "Documentary", "Horror", "Comedy"]} selectedGenre="Comedy" onSelect={(genre)=>{console.log(`genre callback: ${genre}`)}}/>
+            <GenreFilter genres={["Documentary", "Comedy", "Horror", "Crime"]} selectedGenre="Comedy" onSelect={(genre)=>{console.log(`genre callback: ${genre}`)}}/>
         </div>
        );
     }
