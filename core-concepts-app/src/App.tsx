@@ -103,22 +103,26 @@ class GenreFilter extends React.Component<GenreFilterProps> {
     constructor(props: GenreFilterProps) {
         super(props);
         this.state = {
-            selectedGenre: props.selectedGenre.toLowerCase()
+            selectedGenre: props.selectedGenre ? props.selectedGenre.toLowerCase() : "all"
         };
     }
 
-    select = () => {
-        this.props.onSelect(this.state.selectedGenre)
+    select = (genre: string) => {
+        this.setState({
+            selectedGenre: genre
+        });
+        this.props.onSelect(genre);
     }
 
     render() {
-        const { genres, selectedGenre } = this.props;
+        const { genres } = this.props;
         return (
             <div id="genreFilter">
                 <ul>
                     <li
                         key="all"
-                        className={`${this.props.genres.includes(selectedGenre) ? "" : "active"}`}
+                        className={`${this.state.selectedGenre === "all" ? "active" : ""}`}
+                        onClick={() => this.select("all")}
                     >ALL</li>
                     
                     {genres.map((genre) => {
@@ -126,6 +130,7 @@ class GenreFilter extends React.Component<GenreFilterProps> {
                             <li
                                 key={genre.toLowerCase()}
                                 className={`${this.state.selectedGenre === genre.toLowerCase() ? "active" : ""}`}
+                                onClick={() => this.select(genre.toLowerCase())}
                             >{genre.toUpperCase()}</li>
                         );
                     })}
@@ -139,7 +144,7 @@ class GenreFilter extends React.Component<GenreFilterProps> {
 class App extends React.Component {
     render() {
        return (
-        <div className="App">
+        <div>
             <Counter initialValue={0} />
             <SearchForm initialSearchQuery="My initial query" onSearch={(query)=>{console.log(`search callback: ${query}`)}}/>
             <GenreFilter genres={["Documentary", "Comedy", "Horror", "Crime"]} selectedGenre="Comedy" onSelect={(genre)=>{console.log(`genre callback: ${genre}`)}}/>
