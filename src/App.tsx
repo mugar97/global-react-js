@@ -30,7 +30,7 @@ class Counter extends React.Component<CounterProps> {
     return React.createElement(
       "div",
       { id: "counter" },
-      React.createElement("button", { onClick: this.decrement }, `+`),
+      React.createElement("button", { onClick: this.decrement }, `-`),
       React.createElement("span", null, `${this.state.value}`),
       React.createElement("button", { onClick: this.increment }, `+`)
     );
@@ -92,7 +92,7 @@ class SearchForm extends React.Component<SearchFormProps> {
 
 interface GenreFilterProps {
   genres: string[];
-  selectedGenre: string;
+  initialGenre: string;
   onSelect: (genre: string) => void;
 }
 
@@ -106,8 +106,8 @@ class GenreFilter extends React.Component<GenreFilterProps> {
   constructor(props: GenreFilterProps) {
     super(props);
     this.state = {
-      selectedGenre: props.selectedGenre
-        ? props.selectedGenre.toLowerCase()
+      selectedGenre: props.initialGenre
+        ? props.initialGenre.toLowerCase()
         : "all",
     };
   }
@@ -167,7 +167,7 @@ class App extends React.Component {
         />
         <GenreFilter
           genres={["Documentary", "Comedy", "Horror", "Crime"]}
-          selectedGenre="Comedy"
+          initialGenre="Comedy"
           onSelect={(genre) => {
             console.log(`genre callback: ${genre}`);
           }}
