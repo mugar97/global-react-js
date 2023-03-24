@@ -4,8 +4,8 @@ ReactJS Global Mentoring Program [2023]
 
 ## Tasks Progress
 
-- [Core concepts](/core-concepts-app) [On Review]
-- Testing [pending]
+- [Core concepts](https://github.com/mugar97/global-react-js/pull/1) [On Review]
+- Testing [In progress...]
 - Components [pending]
 - Advanced Components [pending]
 - Hooks [pending]
