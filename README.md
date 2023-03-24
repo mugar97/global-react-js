@@ -1,23 +1,21 @@
 # global-react-js
 
-ReactJS Global Mentoring Program [2023]
+ReactJS Global Mentoring Program [2023].
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Tasks Progress
 
 - [Core concepts](https://github.com/mugar97/global-react-js/pull/1) [On Review]
-- Testing [In progress...]
-- Components [pending]
-- Advanced Components [pending]
-- Hooks [pending]
-- Routing [pending]
-- Forms [pending]
-- Server-Side Rendering (SSR) [pending]
-- Webpack [pending]
-- Redux [pending]
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Testing [In progress]
+- Components [To Do]
+- Advanced Components [To Do]
+- Hooks [To Do]
+- Routing [To Do]
+- Forms [To Do]
+- Server-Side Rendering (SSR) [To Do]
+- Webpack [To Do]
+- Redux [To Do]
 
 ## Available Scripts
 
