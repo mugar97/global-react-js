@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from "react";
+import React, { type ReactElement, type ChangeEvent, type FormEvent } from 'react';
 
 interface CounterProps {
   initialValue: number;
@@ -20,21 +20,21 @@ class Counter extends React.Component<CounterProps> {
     this.decrement = this.decrement.bind(this);
   }
 
-  increment() {
+  increment(): void {
     this.setState({ value: this.state.value + 1 });
   }
 
-  decrement() {
+  decrement(): void {
     this.setState({ value: this.state.value - 1 });
   }
 
-  render() {
+  render(): ReactElement {
     return React.createElement(
-      "div",
-      { id: "counter" },
-      React.createElement("button", { onClick: this.decrement }, `-`),
-      React.createElement("span", null, `${this.state.value}`),
-      React.createElement("button", { onClick: this.increment }, `+`)
+      'div',
+      { id: 'counter' },
+      React.createElement('button', { onClick: this.decrement }, `-`),
+      React.createElement('span', null, `${this.state.value}`),
+      React.createElement('button', { onClick: this.increment }, `+`)
     );
   }
 }
@@ -60,31 +60,31 @@ class SearchForm extends React.Component<SearchFormProps> {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  search() {
+  search(): void {
     this.props.onSearch(this.state.searchQuery);
   }
 
-  handleChange(event: ChangeEvent<HTMLInputElement>) {
+  handleChange(event: ChangeEvent<HTMLInputElement>): void {
     this.setState({
       searchQuery: event.target.value,
     });
   }
 
-  handleSubmit(event: FormEvent<HTMLFormElement>) {
+  handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
     this.search();
   }
 
-  render() {
+  render(): ReactElement<SearchForm> {
     return (
-      <form onSubmit={this.handleSubmit} id="searchForm">
+      <form onSubmit={this.handleSubmit} id='searchForm'>
         <input
-          type="text"
-          aria-label="search"
+          type='text'
+          aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
         />
-        <button type="submit">Search</button>
+        <button type='submit'>Search</button>
       </form>
     );
   }
@@ -105,30 +105,34 @@ class GenreFilter extends React.Component<GenreFilterProps> {
 
   constructor(props: GenreFilterProps) {
     super(props);
-    this.state = {
-      selectedGenre: props.initialGenre
+
+    const initialGenre =
+      props.initialGenre != null && props.initialGenre !== ''
         ? props.initialGenre.toLowerCase()
-        : "all",
+        : 'all';
+
+    this.state = {
+      selectedGenre: initialGenre,
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  handleSelect(genre: string) {
+  handleSelect(genre: string): void {
     this.setState({
       selectedGenre: genre,
     });
     this.props.onSelect(genre);
   }
 
-  render() {
+  render(): ReactElement<GenreFilter> {
     const { genres } = this.props;
     return (
-      <div id="genreFilter">
+      <div id='genreFilter'>
         <ul>
           <li
-            key="all"
-            className={`${this.state.selectedGenre === "all" ? "active" : ""}`}
-            onClick={this.handleSelect.bind(null, "all")}
+            key='all'
+            className={`${this.state.selectedGenre === 'all' ? 'active' : ''}`}
+            onClick={this.handleSelect.bind(null, 'all')}
           >
             ALL
           </li>
@@ -137,11 +141,7 @@ class GenreFilter extends React.Component<GenreFilterProps> {
             return (
               <li
                 key={genre.toLowerCase()}
-                className={`${
-                  this.state.selectedGenre === genre.toLowerCase()
-                    ? "active"
-                    : ""
-                }`}
+                className={`${this.state.selectedGenre === genre.toLowerCase() ? 'active' : ''}`}
                 onClick={this.handleSelect.bind(null, genre.toLowerCase())}
               >
                 {genre.toUpperCase()}
@@ -156,19 +156,19 @@ class GenreFilter extends React.Component<GenreFilterProps> {
 
 // App
 class App extends React.Component {
-  render() {
+  render(): ReactElement<App> {
     return (
       <div>
         <Counter initialValue={0} />
         <SearchForm
-          initialSearchQuery="My initial query"
+          initialSearchQuery='My initial query'
           onSearch={(query) => {
             console.log(`search callback: ${query}`);
           }}
         />
         <GenreFilter
-          genres={["Documentary", "Comedy", "Horror", "Crime"]}
-          initialGenre="Comedy"
+          genres={['Documentary', 'Comedy', 'Horror', 'Crime']}
+          initialGenre='Comedy'
           onSelect={(genre) => {
             console.log(`genre callback: ${genre}`);
           }}
