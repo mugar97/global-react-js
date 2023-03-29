@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from "react";
+import React, { ChangeEvent, FormEvent } from 'react';
 
 interface CounterProps {
   initialValue: number;
@@ -30,11 +30,11 @@ class Counter extends React.Component<CounterProps> {
 
   render() {
     return React.createElement(
-      "div",
-      { id: "counter" },
-      React.createElement("button", { onClick: this.decrement }, `-`),
-      React.createElement("span", null, `${this.state.value}`),
-      React.createElement("button", { onClick: this.increment }, `+`)
+      'div',
+      { id: 'counter' },
+      React.createElement('button', { onClick: this.decrement }, '-'),
+      React.createElement('span', null, `${this.state.value}`),
+      React.createElement('button', { onClick: this.increment }, '+')
     );
   }
 }
@@ -77,14 +77,14 @@ class SearchForm extends React.Component<SearchFormProps> {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id="searchForm">
+      <form onSubmit={this.handleSubmit} id='searchForm'>
         <input
-          type="text"
-          aria-label="search"
+          type='text'
+          aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
         />
-        <button type="submit">Search</button>
+        <button type='submit'>Search</button>
       </form>
     );
   }
@@ -106,9 +106,7 @@ class GenreFilter extends React.Component<GenreFilterProps> {
   constructor(props: GenreFilterProps) {
     super(props);
     this.state = {
-      selectedGenre: props.initialGenre
-        ? props.initialGenre.toLowerCase()
-        : "all",
+      selectedGenre: props.initialGenre ? props.initialGenre.toLowerCase() : 'all',
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -123,12 +121,12 @@ class GenreFilter extends React.Component<GenreFilterProps> {
   render() {
     const { genres } = this.props;
     return (
-      <div id="genreFilter">
+      <div id='genreFilter'>
         <ul>
           <li
-            key="all"
-            className={`${this.state.selectedGenre === "all" ? "active" : ""}`}
-            onClick={this.handleSelect.bind(null, "all")}
+            key='all'
+            className={`${this.state.selectedGenre === 'all' ? 'active' : ''}`}
+            onClick={this.handleSelect.bind(null, 'all')}
           >
             ALL
           </li>
@@ -137,11 +135,7 @@ class GenreFilter extends React.Component<GenreFilterProps> {
             return (
               <li
                 key={genre.toLowerCase()}
-                className={`${
-                  this.state.selectedGenre === genre.toLowerCase()
-                    ? "active"
-                    : ""
-                }`}
+                className={`${this.state.selectedGenre === genre.toLowerCase() ? 'active' : ''}`}
                 onClick={this.handleSelect.bind(null, genre.toLowerCase())}
               >
                 {genre.toUpperCase()}
@@ -161,14 +155,14 @@ class App extends React.Component {
       <div>
         <Counter initialValue={0} />
         <SearchForm
-          initialSearchQuery="My initial query"
+          initialSearchQuery='My initial query'
           onSearch={(query) => {
             console.log(`search callback: ${query}`);
           }}
         />
         <GenreFilter
-          genres={["Documentary", "Comedy", "Horror", "Crime"]}
-          initialGenre="Comedy"
+          genres={['Documentary', 'Comedy', 'Horror', 'Crime']}
+          initialGenre='Comedy'
           onSelect={(genre) => {
             console.log(`genre callback: ${genre}`);
           }}
