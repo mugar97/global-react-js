@@ -21,7 +21,8 @@
   "rules": {
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "eol-last": ["error", "always"]
   },
   "settings": {
     "import/resolver": {
