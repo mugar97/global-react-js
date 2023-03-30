@@ -1,4 +1,4 @@
-name: ESLint and Jest Tests
+name: Static and Unit tests
 
 on:
   push:
@@ -18,5 +18,8 @@ jobs:
       - name: Run Linters
         run: npm run lint
 
-      - name: Run Jest tests
-        run: npm run test
+      - name: Run Typescript compiler - Error checking
+        run: npm run tsc
+
+      - name: Run Unit tests with coverage
+        run: npm run test -- --coverage
