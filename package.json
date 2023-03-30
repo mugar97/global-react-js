@@ -23,7 +23,8 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
-    "tsc": "tsc --noEmit",
+    "tsc": "tsc --noEmit --project ./tsconfig.json",
+    "tsc:cypress": "tsc --noEmit --project ./cypress/tsconfig.json",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },

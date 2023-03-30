@@ -11,3 +11,5 @@ describe('Search bar', () => {
     cy.get('@consoleLog').should('be.calledWith', 'search callback: e2e test');
   });
 });
+
+export {};
