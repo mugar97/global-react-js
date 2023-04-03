@@ -1,0 +1,25 @@
+name: Static and Unit tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Linters
+        run: npm run lint
+
+      - name: Run Typescript compiler - Error checking
+        run: npm run tsc
+
+      - name: Run Unit tests with coverage
+        run: npm run test -- --coverage
