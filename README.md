@@ -6,8 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Tasks Progress
 
-- [Core concepts](https://github.com/mugar97/global-react-js/pull/1) [On Review]
-- Testing [In progress]
+- [Core concepts](https://github.com/mugar97/global-react-js/pull/1) [Done]
+- Testing [Done]
+  - [Static tests](https://github.com/mugar97/global-react-js/pull/5)
+  - [Unit tests](https://github.com/mugar97/global-react-js/pull/7)
+  - [E2E tests](https://github.com/mugar97/global-react-js/pull/8)
 - Components [To Do]
 - Advanced Components [To Do]
 - Hooks [To Do]

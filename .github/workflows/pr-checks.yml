@@ -18,8 +18,11 @@ jobs:
       - name: Run Linters
         run: npm run lint
 
-      - name: Run Typescript compiler - Error checking
+      - name: Run Typescript compiler - Project
         run: npm run tsc
+
+      - name: Run Typescript compiler - Cypress
+        run: npm run tsc:cypress
 
       - name: Run Unit tests with coverage
         run: npm run test -- --coverage

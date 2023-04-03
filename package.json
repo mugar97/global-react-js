@@ -24,7 +24,10 @@
     "format": "prettier --write 'src/**/*.{ts,tsx,css}'",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
-    "tsc": "tsc --noEmit"
+    "tsc": "tsc --noEmit --project ./tsconfig.json",
+    "tsc:cypress": "tsc --noEmit --project ./cypress/tsconfig.json",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
+    "cypress": "^12.9.0",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
