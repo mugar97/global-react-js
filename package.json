@@ -27,12 +27,24 @@
     "tsc": "tsc --noEmit --project ./tsconfig.json",
     "tsc:cypress": "tsc --noEmit --project ./cypress/tsconfig.json",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -48,12 +60,24 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.0.4",
+    "@storybook/addon-interactions": "^7.0.4",
+    "@storybook/addon-links": "^7.0.4",
+    "@storybook/blocks": "^7.0.4",
+    "@storybook/preset-create-react-app": "^7.0.4",
+    "@storybook/react": "^7.0.4",
+    "@storybook/react-webpack5": "^7.0.4",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@typescript-eslint/parser": "^5.57.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "cypress": "^12.9.0",
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.7",
-    "typescript": "^4.9.5"
+    "prop-types": "^15.8.1",
+    "storybook": "^7.0.4",
+    "typescript": "^4.9.5",
+    "webpack": "^5.79.0"
   }
 }
