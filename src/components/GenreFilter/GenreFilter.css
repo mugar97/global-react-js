@@ -1,0 +1,15 @@
+#genreFilter {
+  list-style: none;
+  padding: 0;
+}
+
+#genreFilter li {
+  display: inline;
+  cursor: pointer;
+  padding: 1em 0;
+  margin: 0 1em;
+}
+
+#genreFilter li.active {
+  border-bottom: #f65261 3px solid;
+}

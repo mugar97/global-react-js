@@ -1,3 +1,7 @@
-#genreFilter li.active {
-  font-weight: bold;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Argentum Sans';
+  background-color: #232323;
+  color: #ffffff;
 }
