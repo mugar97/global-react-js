@@ -32,27 +32,29 @@ export class GenreFilter extends React.Component<GenreFilterProps> {
   render() {
     const { genres } = this.props;
     return (
-      <ul id='genreFilter'>
-        <li
-          key='all'
-          className={`${this.state.selectedGenre === 'all' ? 'active' : ''}`}
-          onClick={this.handleSelect.bind(null, 'all')}
-        >
-          ALL
-        </li>
+      <>
+        <ul id='genreFilter'>
+          <li
+            key='all'
+            className={`${this.state.selectedGenre === 'all' ? 'active' : ''}`}
+            onClick={this.handleSelect.bind(null, 'all')}
+          >
+            ALL
+          </li>
 
-        {genres.map((genre) => {
-          return (
-            <li
-              key={genre.toLowerCase()}
-              className={`${this.state.selectedGenre === genre.toLowerCase() ? 'active' : ''}`}
-              onClick={this.handleSelect.bind(null, genre.toLowerCase())}
-            >
-              {genre.toUpperCase()}
-            </li>
-          );
-        })}
-      </ul>
+          {genres.map((genre) => {
+            return (
+              <li
+                key={genre.toLowerCase()}
+                className={`${this.state.selectedGenre === genre.toLowerCase() ? 'active' : ''}`}
+                onClick={this.handleSelect.bind(null, genre.toLowerCase())}
+              >
+                {genre.toUpperCase()}
+              </li>
+            );
+          })}
+        </ul>
+      </>
     );
   }
 }
