@@ -1,0 +1,15 @@
+.searchForm {
+  padding: 1em;
+  $gap: 1em;
+
+  input {
+    width: calc(70% - 2em - $gap);
+    margin-right: $gap;
+    vertical-align: middle;
+  }
+
+  button {
+    width: 30%;
+    vertical-align: middle;
+  }
+}

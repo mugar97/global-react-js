@@ -1,6 +1,9 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent, ComponentProps, FormEvent } from 'react';
+import { Button } from '../common/Button/Button';
+import { Input } from '../common/Input/Input';
+import './SearchForm.scss';
 
-interface SearchFormProps {
+interface SearchFormProps extends ComponentProps<'input'> {
   initialSearchQuery: string;
   onSearch: (query: string) => void;
 }
@@ -38,14 +41,15 @@ class SearchForm extends React.Component<SearchFormProps> {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} id='searchForm'>
-        <input
+      <form onSubmit={this.handleSubmit} className='searchForm'>
+        <Input
           type='text'
           aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
+          {...this.props}
         />
-        <button type='submit'>Search</button>
+        <Button customStyle='primary' label='Search' type='submit' />
       </form>
     );
   }

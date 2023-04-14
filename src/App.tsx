@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import SearchForm from './components/SearchForm/SearchForm';
-import GenreFilter from './components/GenreFilter/GenreFilter';
+import GenreSelect from './components/GenreSelect/GenreSelect';
 import Counter from './components/Counter/Counter';
 
 // App
@@ -19,7 +19,7 @@ class App extends React.Component {
             }
           }
         />
-        <GenreFilter
+        <GenreSelect
           genres={['Documentary', 'Comedy', 'Horror', 'Crime']}
           initialGenre='Comedy'
           onSelect={

@@ -6,7 +6,7 @@ describe('Search bar', () => {
       },
     });
 
-    cy.get('#searchForm > input').clear().type('e2e test{enter}');
+    cy.get('.searchForm > input').clear().type('e2e test{enter}');
 
     cy.get('@consoleLog').should('be.calledWith', 'search callback: e2e test');
   });

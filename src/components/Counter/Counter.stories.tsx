@@ -2,7 +2,7 @@ import type { StoryObj } from '@storybook/react';
 import Counter from './Counter';
 
 const meta = {
-  title: 'Training/Counter',
+  title: 'Misc/Counter',
   component: Counter,
 };
 

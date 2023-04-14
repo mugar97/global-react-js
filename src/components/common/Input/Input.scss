@@ -1,0 +1,14 @@
+@import '../../../variables';
+.input {
+  background-color: $color-input-background;
+  border: 0;
+  color: $color-input-text;
+  font-family: 'Argentum Sans', sans-serif;
+  font-weight: 300;
+  padding: 1em;
+  width: 300px;
+
+  &::placeholder {
+    color: $color-input-placeholder;
+  }
+}

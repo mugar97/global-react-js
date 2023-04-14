@@ -1,0 +1,13 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+* {
+  @include no-padding;
+  outline: none;
+  font-family: $font-stack;
+}
+
+body {
+  background-color: $color-dark-background;
+  color: $color-main-text;
+}
