@@ -1,13 +1,17 @@
 @import './variables.scss';
 @import './mixins.scss';
 
-* {
-  @include no-padding;
+input,
+button,
+select,
+textarea {
   outline: none;
-  font-family: $font-stack;
+  border: 0;
 }
 
+html,
 body {
-  background-color: $color-dark-background;
+  @include base-font;
   color: $color-main-text;
+  background-color: $color-dark-background;
 }
