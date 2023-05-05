@@ -2,16 +2,18 @@
 @import '../../mixins';
 
 .genreSelect {
+  font-weight: 500;
   list-style: none;
   padding: 0;
   li {
     @include clickable;
+    @include prevent-select;
     display: inline;
     padding: 1em 0;
     margin: 0 1em;
 
     &.active {
-      border-bottom: $color-primary 3px solid;
+      border-bottom: $color-primary 4px solid;
     }
   }
 }

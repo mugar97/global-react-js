@@ -1,14 +1,26 @@
 @import '../../../variables';
 .input {
-  background-color: $color-input-background;
-  border: 0;
-  color: $color-input-text;
-  font-family: 'Argentum Sans', sans-serif;
-  font-weight: 300;
-  padding: 1em;
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-  &::placeholder {
-    color: $color-input-placeholder;
+  &__input {
+    background-color: $color-input-background;
+    border-radius: 4px;
+    color: $color-input-text;
+    font-weight: 300;
+    padding: 1em;
+
+    &::placeholder {
+      color: $color-input-placeholder;
+    }
+  }
+
+  &__label {
+    margin-bottom: 0.65em;
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    color: $color-primary;
   }
 }

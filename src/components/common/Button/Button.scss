@@ -3,12 +3,10 @@
 
 .button {
   border: 0;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   display: inline-block;
-  font-family: $font-stack;
-  font-weight: 300;
-  letter-spacing: 1px;
+  font-weight: 500;
   line-height: 1;
   padding: 1em 3em;
   text-transform: uppercase;
@@ -25,7 +23,7 @@
   }
   &--tertiary {
     color: $color-primary;
-    font-weight: 400;
+    font-weight: 600;
     background-color: $color-transparent-white;
     padding: 1em 1em;
   }
