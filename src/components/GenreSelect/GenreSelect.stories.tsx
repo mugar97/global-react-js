@@ -10,18 +10,18 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const EmptyGenreList: Story = {
-  args: {
-    genres: [],
-    initialGenre: '',
-    onSelect: () => {},
-  },
-};
-
 export const GenreSelectedFromList: Story = {
   args: {
     genres: ['Documentary', 'Comedy', 'Horror', 'Crime'],
     initialGenre: 'comedy',
+    onSelect: () => {},
+  },
+};
+
+export const EmptyGenreList: Story = {
+  args: {
+    genres: [],
+    initialGenre: '',
     onSelect: () => {},
   },
 };

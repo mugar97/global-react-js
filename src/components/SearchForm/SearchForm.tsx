@@ -2,6 +2,7 @@ import React, { ChangeEvent, ComponentProps, FormEvent } from 'react';
 import { Button } from '../common/Button/Button';
 import { Input } from '../common/Input/Input';
 import './SearchForm.scss';
+import { omit } from 'lodash';
 
 interface SearchFormProps extends ComponentProps<'input'> {
   initialSearchQuery: string;
@@ -40,6 +41,7 @@ class SearchForm extends React.Component<SearchFormProps> {
   }
 
   render() {
+    const inputProps = omit(this.props, 'initialSearchQuery', 'onSearch');
     return (
       <form onSubmit={this.handleSubmit} className='searchForm'>
         <Input
@@ -47,7 +49,7 @@ class SearchForm extends React.Component<SearchFormProps> {
           aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
-          {...this.props}
+          {...inputProps}
         />
         <Button customStyle='primary' label='Search' type='submit' />
       </form>

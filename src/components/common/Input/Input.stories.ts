@@ -13,14 +13,25 @@ type Story = StoryObj<typeof meta>;
 
 export const Placeholder: Story = {
   args: {
-    placeholder: 'What do you want to watch?',
-    width: 600,
+    placeholder: 'https://',
+    style: {
+      width: 400,
+    },
   },
 };
 
 export const Value: Story = {
   args: {
     value: 'My favorite movie',
-    width: 600,
+    style: {
+      width: 400,
+    },
+  },
+};
+
+export const LabeledInput: Story = {
+  args: {
+    label: 'Movie URL',
+    placeholder: 'http://',
   },
 };
