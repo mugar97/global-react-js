@@ -2,7 +2,6 @@ import { render } from '@testing-library/react';
 import { testMovie } from '../../utils/testData';
 import { IMovie } from '../../utils/interfaces';
 import { MovieDescription } from './MovieDescription';
-import _ from 'lodash';
 
 test('should render an image', () => {
   const movie: IMovie = {
