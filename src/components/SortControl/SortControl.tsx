@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import './SortControl.scss';
 
 const Options = {
   RELEASE_DATE: 'release date',
@@ -37,13 +38,20 @@ export class SortControl extends React.Component<SortControlProps, SortControlSt
 
   render() {
     return (
-      <>
-        <label htmlFor='sort-control'>Sort by:</label>
-        <select id='sort-control' value={this.state.current} onChange={this.handleOnChange}>
+      <div className='SortControl'>
+        <label className='SortControl__Label' htmlFor='sort-control'>
+          Sort by
+        </label>
+        <select
+          className='SortControl__Select'
+          id='sort-control'
+          value={this.state.current}
+          onChange={this.handleOnChange}
+        >
           <option value={Options.RELEASE_DATE}>Release date</option>
           <option value={Options.TITLE}>Title</option>
         </select>
-      </>
+      </div>
     );
   }
 }

@@ -4,17 +4,17 @@ import userEvent from '@testing-library/user-event';
 
 test('should render sort control labels', () => {
   const { getByText } = render(<SortControl onChange={() => {}} />);
-  expect(getByText('Sort by:')).toBeInTheDocument();
+  expect(getByText('Sort by')).toBeInTheDocument();
 });
 
 test('should render "Release date" option by default', () => {
   const { getByLabelText } = render(<SortControl onChange={() => {}} />);
-  expect(getByLabelText('Sort by:')).toHaveValue('release date');
+  expect(getByLabelText('Sort by')).toHaveValue('release date');
 });
 
 test('should render the option passed in the currentSelection prop', () => {
   const { getByLabelText } = render(<SortControl initialOption='title' onChange={() => {}} />);
-  expect(getByLabelText('Sort by:')).toHaveValue('title');
+  expect(getByLabelText('Sort by')).toHaveValue('title');
 });
 
 test('should call "onChange" callback with the selected option after change', () => {
@@ -23,8 +23,8 @@ test('should call "onChange" callback with the selected option after change', ()
     <SortControl initialOption='release date' onChange={onChange} />
   );
   act(() => {
-    userEvent.selectOptions(getByLabelText('Sort by:'), 'title');
+    userEvent.selectOptions(getByLabelText('Sort by'), 'title');
   });
   expect(onChange).toHaveBeenCalledWith('title');
-  expect(getByLabelText('Sort by:')).toHaveValue('title');
+  expect(getByLabelText('Sort by')).toHaveValue('title');
 });
