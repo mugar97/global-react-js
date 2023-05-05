@@ -13,7 +13,7 @@ interface SearchFormState {
   searchQuery: string;
 }
 
-class SearchForm extends React.Component<SearchFormProps> {
+class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
   state: SearchFormState;
 
   constructor(props: SearchFormProps) {

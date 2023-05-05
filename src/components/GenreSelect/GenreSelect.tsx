@@ -11,7 +11,7 @@ interface GenreSelectState {
   selectedGenre: string;
 }
 
-export class GenreSelect extends React.Component<GenreSelectProps> {
+export class GenreSelect extends React.Component<GenreSelectProps, GenreSelectState> {
   state: GenreSelectState;
 
   constructor(props: GenreSelectProps) {
