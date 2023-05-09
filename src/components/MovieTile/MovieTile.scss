@@ -1,4 +1,5 @@
 @import '../../variables';
+@import '../../mixins';
 
 $tile-img-min-width: 322px;
 $tile-img-min-height: 455px;
@@ -6,6 +7,8 @@ $year-width: 66px;
 
 .MovieTile {
   width: $tile-img-min-width;
+  @include clickable;
+  @include prevent-select;
 
   &__image {
     width: 100%;
