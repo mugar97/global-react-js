@@ -28,14 +28,17 @@ jobs:
       - name: Run Typescript compiler - Cypress
         run: npm run tsc:cypress
 
-      - name: Check test coverage
-        uses: terencetcf/github-actions-lcov-minimum-coverage-checker@v1
-        with:
-          coverage-file: coverage/lcov.info
-          minimum-coverage: 90
+      - name: Run tests with coverage
+        run: npm run test -- --coverage
 
       - name: Upload coverage results
         uses: actions/upload-artifact@v2
         with:
           name: coverage
           path: coverage/
+
+      - name: Check test coverage
+        uses: terencetcf/github-actions-lcov-minimum-coverage-checker@v1
+        with:
+          coverage-file: coverage/lcov.info
+          minimum-coverage: 90
