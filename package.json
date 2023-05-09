@@ -84,5 +84,14 @@
   },
   "overrides": {
     "react-refresh": "^0.14.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/**/*.stories.{ts,tsx}",
+      "!/node_modules/",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ]
   }
 }
