@@ -25,16 +25,16 @@ export class MovieDescription extends Component<MovieDescriptionProps> {
         </div>
         <div className='MovieDescription__rightPanel'>
           <h1 className='MovieDescription__rightPanel__title'>{this.movie.name}</h1>
-          <span className='MovieDescription__rightPanel__rating' title='rating'>
+          <span className='MovieDescription__rightPanel__rating' data-testid='rating'>
             {this.movie.raiting}
           </span>
-          <span className='MovieDescription__rightPanel__genres' title='genres'>
+          <span className='MovieDescription__rightPanel__genres' data-testid='genres'>
             {this.movie.genres.map((genre) => genre.replace(/\w+/g, _.capitalize)).join(', ')}
           </span>
-          <span className='MovieDescription__rightPanel__year' title='release-year'>
+          <span className='MovieDescription__rightPanel__year' data-testid='release-year'>
             {this.movie.releaseYear}
           </span>
-          <span className='MovieDescription__rightPanel__length' title='length'>
+          <span className='MovieDescription__rightPanel__length' data-testid='length'>
             {this.movie.length}
           </span>
           <p className='MovieDescription__rightPanel__description' role='paragraph'>

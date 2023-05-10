@@ -18,3 +18,7 @@ $color-input-text: $color-main-text;
 
 $color-movie-tile-title: #bdbdbd;
 $color-movie-genres: #919191;
+
+@function url-friendly-colour($colour) {
+  @return '%23' + str-slice('#{$colour}', 2, -1);
+}

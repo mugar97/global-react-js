@@ -22,8 +22,8 @@ test('should render a list of genres', () => {
     ...testMovie,
     genres: ['genre a', 'genre b', 'genre c'],
   };
-  const { getByTitle } = render(<MovieDescription movie={testMovieWithGenres} />);
-  expect(getByTitle('genres')).toHaveTextContent('Genre A, Genre B, Genre C');
+  const { getByTestId } = render(<MovieDescription movie={testMovieWithGenres} />);
+  expect(getByTestId('genres')).toHaveTextContent('Genre A, Genre B, Genre C');
 });
 
 test('should render the movie raiting', () => {
@@ -31,8 +31,8 @@ test('should render the movie raiting', () => {
     ...testMovie,
     raiting: 8.1,
   };
-  const { getByTitle } = render(<MovieDescription movie={testMovieWithRaiting} />);
-  expect(getByTitle('rating')).toHaveTextContent('8.1');
+  const { getByTestId } = render(<MovieDescription movie={testMovieWithRaiting} />);
+  expect(getByTestId('rating')).toHaveTextContent('8.1');
 });
 
 test('should render the movie release year', () => {
@@ -40,8 +40,8 @@ test('should render the movie release year', () => {
     ...testMovie,
     releaseYear: '2015',
   };
-  const { getByTitle } = render(<MovieDescription movie={testMovieWithReleaseYear} />);
-  expect(getByTitle('release-year')).toHaveTextContent(testMovieWithReleaseYear.releaseYear);
+  const { getByTestId } = render(<MovieDescription movie={testMovieWithReleaseYear} />);
+  expect(getByTestId('release-year')).toHaveTextContent(testMovieWithReleaseYear.releaseYear);
 });
 
 test('should render the movie length', () => {
@@ -49,8 +49,8 @@ test('should render the movie length', () => {
     ...testMovie,
     length: '2h30m40s',
   };
-  const { getByTitle } = render(<MovieDescription movie={testMovieWithMovieLength} />);
-  expect(getByTitle('length')).toHaveTextContent('2h30m40s');
+  const { getByTestId } = render(<MovieDescription movie={testMovieWithMovieLength} />);
+  expect(getByTestId('length')).toHaveTextContent('2h30m40s');
 });
 
 test('should render the movie description', () => {

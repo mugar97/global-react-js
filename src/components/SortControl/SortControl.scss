@@ -1,9 +1,5 @@
 @import '../../variables';
 
-@function url-friendly-colour($colour) {
-  @return '%23' + str-slice('#{$colour}', 2, -1);
-}
-
 .SortControl {
   &__Label {
     color: $color-palette-lighter-gray;

@@ -11,8 +11,8 @@ test('should render movie name', () => {
 });
 
 test('should render movie release year', () => {
-  const { getByTitle } = render(<MovieTile movie={testMovie} onClick={() => {}} />);
-  expect(getByTitle('release-year')).toHaveTextContent(`${testMovie.releaseYear}`);
+  const { getByTestId } = render(<MovieTile movie={testMovie} onClick={() => {}} />);
+  expect(getByTestId('release-year')).toHaveTextContent(`${testMovie.releaseYear}`);
 });
 
 test('should render a list of genres', () => {
@@ -20,8 +20,8 @@ test('should render a list of genres', () => {
     ...testMovie,
     genres: ['genre a', 'genre b', 'genre c'],
   };
-  const { getByTitle } = render(<MovieTile movie={testMovieWithGenres} onClick={() => {}} />);
-  expect(getByTitle('genres')).toHaveTextContent('Genre A, Genre B, Genre C');
+  const { getByTestId } = render(<MovieTile movie={testMovieWithGenres} onClick={() => {}} />);
+  expect(getByTestId('genres')).toHaveTextContent('Genre A, Genre B, Genre C');
 });
 
 test('should render an image', () => {
@@ -31,10 +31,10 @@ test('should render an image', () => {
 
 test('should execute a custom callback on click event', () => {
   const onClick = jest.fn();
-  const { getByTitle } = render(<MovieTile movie={testMovie} onClick={onClick} />);
+  const { getByTestId } = render(<MovieTile movie={testMovie} onClick={onClick} />);
 
   act(() => {
-    userEvent.click(getByTitle('movie-tile'));
+    userEvent.click(getByTestId('movie-tile'));
   });
   expect(onClick).toBeCalledTimes(1);
 });
