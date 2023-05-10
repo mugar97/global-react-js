@@ -1,14 +1,18 @@
 import { Component, PropsWithChildren } from 'react';
 import './OverlayMenu.scss';
 
+interface OverlayMenuProps extends PropsWithChildren {
+  onEdit: () => void;
+  onDelete: () => void;
+}
 interface OverlayMenuState {
   isButtonShown: boolean;
   isMenuShown: boolean;
 }
 
-export default class OverlayMenu extends Component<PropsWithChildren, OverlayMenuState> {
+export class OverlayMenu extends Component<OverlayMenuProps, OverlayMenuState> {
   state: OverlayMenuState;
-  constructor(props: PropsWithChildren) {
+  constructor(props: OverlayMenuProps) {
     super(props);
     this.state = {
       isButtonShown: false,
@@ -54,10 +58,10 @@ export default class OverlayMenu extends Component<PropsWithChildren, OverlayMen
               data-testid='menu-close-button'
               onClick={this.closeMenu}
             ></span>
-            <li className='OverlayMenu__menuItem' role='menuitem'>
+            <li className='OverlayMenu__menuItem' role='menuitem' onClick={this.props.onEdit}>
               Edit
             </li>
-            <li className='OverlayMenu__menuItem' role='menuitem'>
+            <li className='OverlayMenu__menuItem' role='menuitem' onClick={this.props.onDelete}>
               Delete
             </li>
           </ul>
