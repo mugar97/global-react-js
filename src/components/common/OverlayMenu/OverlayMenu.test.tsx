@@ -2,34 +2,71 @@ import { act, render } from '@testing-library/react';
 import { OverlayMenu } from './OverlayMenu';
 import userEvent from '@testing-library/user-event';
 
-function Content() {
-  return <div role='figure'></div>;
-}
+const content = <div data-testid='child-element'>Child Element</div>;
 
-const fn = () => {};
-
-test('should render a menu button on content hover event', () => {
-  const { queryByTitle, getByRole } = render(
-    <OverlayMenu onEdit={fn} onDelete={fn}>
-      <Content />
+test('should render the children', () => {
+  const { getByTestId } = render(
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
     </OverlayMenu>
   );
-  const content = getByRole('figure');
+
+  const childElement = getByTestId('child-element');
+  expect(childElement).toBeInTheDocument();
+  expect(childElement.textContent).toBe('Child Element');
+});
+
+test('should render a menu button on content hover event', () => {
+  const { queryByTitle, getByTestId } = render(
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
+    </OverlayMenu>
+  );
   expect(queryByTitle('menu-button')).not.toBeInTheDocument();
   act(() => {
-    userEvent.hover(content);
+    userEvent.hover(getByTestId('child-element'));
+  });
+  expect(queryByTitle('menu-button')).toBeInTheDocument();
+});
+
+test('hould hide the menu button when mouse leaves the component', () => {
+  const { queryByTitle, getByTestId } = render(
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
+    </OverlayMenu>
+  );
+  expect(queryByTitle('menu-button')).not.toBeInTheDocument();
+  act(() => {
+    userEvent.hover(getByTestId('child-element'));
+  });
+  expect(queryByTitle('menu-button')).toBeInTheDocument();
+  act(() => {
+    userEvent.unhover(getByTestId('child-element'));
+  });
+  expect(queryByTitle('menu-button')).not.toBeInTheDocument();
+});
+
+test('should render a menu button on content hover event', () => {
+  const { queryByTitle, getByTestId } = render(
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
+    </OverlayMenu>
+  );
+  expect(queryByTitle('menu-button')).not.toBeInTheDocument();
+  act(() => {
+    userEvent.hover(getByTestId('child-element'));
   });
   expect(queryByTitle('menu-button')).toBeInTheDocument();
 });
 
 test('should show menu on click with edit and delete options and a close button', () => {
   const { getByTestId, getByTitle, getByRole, getAllByRole } = render(
-    <OverlayMenu onEdit={fn} onDelete={fn}>
-      <Content />
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
     </OverlayMenu>
   );
   act(() => {
-    userEvent.hover(getByRole('figure'));
+    userEvent.hover(getByTestId('child-element'));
   });
   act(() => {
     userEvent.click(getByTitle('menu-button'));
@@ -44,12 +81,12 @@ test('should show menu on click with edit and delete options and a close button'
 
 test('close menu button should close menu on click', () => {
   const { getByTestId, getByTitle, getByRole, queryByRole } = render(
-    <OverlayMenu onEdit={fn} onDelete={fn}>
-      <Content />
+    <OverlayMenu onEdit={jest.fn()} onDelete={jest.fn()}>
+      {content}
     </OverlayMenu>
   );
   act(() => {
-    userEvent.hover(getByRole('figure'));
+    userEvent.hover(getByTestId('child-element'));
   });
   act(() => {
     userEvent.click(getByTitle('menu-button'));
@@ -63,13 +100,13 @@ test('close menu button should close menu on click', () => {
 
 test('should trigger callback on Edit', () => {
   const onEdit = jest.fn();
-  const { getByText, getByTitle, getByRole } = render(
-    <OverlayMenu onEdit={onEdit} onDelete={fn}>
-      <Content />
+  const { getByText, getByTitle, getByRole, getByTestId } = render(
+    <OverlayMenu onEdit={onEdit} onDelete={jest.fn()}>
+      {content}
     </OverlayMenu>
   );
   act(() => {
-    userEvent.hover(getByRole('figure'));
+    userEvent.hover(getByTestId('child-element'));
   });
   act(() => {
     userEvent.click(getByTitle('menu-button'));
@@ -83,13 +120,13 @@ test('should trigger callback on Edit', () => {
 
 test('should trigger callback on Delete', () => {
   const onDelete = jest.fn();
-  const { getByText, getByTitle, getByRole } = render(
-    <OverlayMenu onEdit={fn} onDelete={onDelete}>
-      <Content />
+  const { getByText, getByTitle, getByRole, getByTestId } = render(
+    <OverlayMenu onEdit={jest.fn()} onDelete={onDelete}>
+      {content}
     </OverlayMenu>
   );
   act(() => {
-    userEvent.hover(getByRole('figure'));
+    userEvent.hover(getByTestId('child-element'));
   });
   act(() => {
     userEvent.click(getByTitle('menu-button'));

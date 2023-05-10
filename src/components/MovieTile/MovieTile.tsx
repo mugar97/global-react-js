@@ -18,8 +18,14 @@ export class MovieTile extends Component<MovieTileProps> {
     this.onClick = props.onClick;
   }
 
-  edit() {}
-  delete() {}
+  /* istanbul ignore next */
+  edit() {
+    // TODO: edit
+  }
+  /* istanbul ignore next */
+  delete() {
+    // TODO: delete
+  }
 
   render() {
     return (
