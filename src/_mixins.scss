@@ -1,0 +1,21 @@
+@mixin base-font {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin no-padding {
+  padding: 0;
+  margin: 0;
+}
+@mixin clickable {
+  cursor: pointer;
+}
+
+@mixin prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}

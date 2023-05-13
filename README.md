@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - [Static tests](https://github.com/mugar97/global-react-js/pull/5)
   - [Unit tests](https://github.com/mugar97/global-react-js/pull/7)
   - [E2E tests](https://github.com/mugar97/global-react-js/pull/8)
-- Components [To Do]
+- Components [In progress]
 - Advanced Components [To Do]
 - Hooks [To Do]
 - Routing [To Do]

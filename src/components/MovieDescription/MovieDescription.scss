@@ -1,0 +1,68 @@
+@import '../../variables';
+
+.MovieDescription {
+  &__leftPanel {
+    width: 30%;
+    display: inline-block;
+    &__image {
+      width: 100%;
+    }
+  }
+  &__rightPanel {
+    display: inline-block;
+    width: calc(70% - 3em);
+    padding: 0 1em 0 2em;
+    vertical-align: top;
+
+    &__title {
+      padding: 0;
+      margin: 0;
+      font-size: 40px;
+      font-weight: 300;
+      text-transform: uppercase;
+      line-height: 48.76px;
+      display: inline-block;
+    }
+
+    &__rating {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 20px;
+      font-weight: lighter;
+      display: inline-block;
+      border: 1px solid $color-main-text;
+      border-radius: 100%;
+      text-align: center;
+      margin-left: 25px;
+      position: relative;
+      vertical-align: middle;
+      top: -0.5em;
+    }
+
+    &__genres {
+      color: $color-movie-genres;
+      display: block;
+      font-size: 14px;
+      position: relative;
+      top: -1em;
+    }
+
+    &__year,
+    &__length {
+      font-size: 24px;
+      font-weight: lighter;
+      color: $color-primary;
+      display: inline-block;
+      margin-right: 3em;
+      margin-top: 0.5em;
+    }
+
+    &__description {
+      font-weight: lighter;
+      font-size: 20px;
+      line-height: 24px;
+      color: $color-movie-genres;
+    }
+  }
+}

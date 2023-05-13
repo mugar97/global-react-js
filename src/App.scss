@@ -1,0 +1,17 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+input,
+button,
+select,
+textarea {
+  outline: none;
+  border: 0;
+}
+
+html,
+body {
+  @include base-font;
+  color: $color-main-text;
+  background-color: $color-dark-background;
+}

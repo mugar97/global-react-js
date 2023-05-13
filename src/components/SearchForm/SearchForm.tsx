@@ -1,4 +1,8 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent, ComponentProps, FormEvent } from 'react';
+import { Button } from '../common/Button/Button';
+import { Input } from '../common/Input/Input';
+import './SearchForm.scss';
+import { omit } from 'lodash';
 
 interface SearchFormProps {
   initialSearchQuery: string;
@@ -9,7 +13,7 @@ interface SearchFormState {
   searchQuery: string;
 }
 
-class SearchForm extends React.Component<SearchFormProps> {
+class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
   state: SearchFormState;
 
   constructor(props: SearchFormProps) {
@@ -37,15 +41,18 @@ class SearchForm extends React.Component<SearchFormProps> {
   }
 
   render() {
+    const inputProps = omit(this.props, 'initialSearchQuery', 'onSearch');
     return (
-      <form onSubmit={this.handleSubmit} id='searchForm'>
-        <input
+      <form onSubmit={this.handleSubmit} className='searchForm'>
+        <Input
           type='text'
           aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
+          placeholder='What do you want to watch?'
+          {...inputProps}
         />
-        <button type='submit'>Search</button>
+        <Button customStyle='primary' label='Search' type='submit' />
       </form>
     );
   }

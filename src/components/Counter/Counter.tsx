@@ -6,7 +6,7 @@ interface CounterProps {
 interface CounterState {
   value: number;
 }
-class Counter extends React.Component<CounterProps> {
+class Counter extends React.Component<CounterProps, CounterState> {
   state: CounterState;
 
   constructor(props: CounterProps) {
