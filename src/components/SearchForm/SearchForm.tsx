@@ -4,7 +4,7 @@ import { Input } from '../common/Input/Input';
 import './SearchForm.scss';
 import { omit } from 'lodash';
 
-interface SearchFormProps extends ComponentProps<'input'> {
+interface SearchFormProps {
   initialSearchQuery: string;
   onSearch: (query: string) => void;
 }
@@ -49,6 +49,7 @@ class SearchForm extends React.Component<SearchFormProps, SearchFormState> {
           aria-label='search'
           value={this.state.searchQuery}
           onChange={this.handleChange}
+          placeholder='What do you want to watch?'
           {...inputProps}
         />
         <Button customStyle='primary' label='Search' type='submit' />

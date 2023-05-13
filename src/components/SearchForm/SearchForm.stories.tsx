@@ -16,6 +16,5 @@ export const Default: Story = {
   args: {
     initialSearchQuery: '',
     onSearch: () => {},
-    placeholder: 'What do you want to watch?',
   },
 };

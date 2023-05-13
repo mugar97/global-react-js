@@ -2,8 +2,8 @@ import React, { ChangeEvent } from 'react';
 import './SortControl.scss';
 
 const Options = {
-  RELEASE_DATE: 'release date',
-  TITLE: 'title',
+  RELEASE_DATE: 'Release date',
+  TITLE: 'Title',
 } as const;
 
 type Options = (typeof Options)[keyof typeof Options];
@@ -48,8 +48,11 @@ export class SortControl extends React.Component<SortControlProps, SortControlSt
           value={this.state.current}
           onChange={this.handleOnChange}
         >
-          <option value={Options.RELEASE_DATE}>Release date</option>
-          <option value={Options.TITLE}>Title</option>
+          {Object.values(Options).map((opt) => (
+            <option value={opt} key={opt}>
+              {opt}
+            </option>
+          ))}
         </select>
       </div>
     );

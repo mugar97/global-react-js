@@ -1,32 +1,33 @@
 import { render } from '@testing-library/react';
 import { MovieTile } from './MovieTile';
-import { IMovie } from '../../utils/interfaces';
+import { Movie } from '../../utils/interfaces';
 import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 import { testMovie } from '../../utils/testData';
 
-test('should render movie name', () => {
-  const { getByRole } = render(<MovieTile movie={testMovie} onClick={() => {}} />);
+test('should render movie img, name and release year as passed in on props', () => {
+  const { getByRole, getByTestId } = render(<MovieTile movie={testMovie} onClick={jest.fn()} />);
+  expect(getByRole('img')).toHaveAttribute('src', testMovie.imageUrl);
   expect(getByRole('heading')).toHaveTextContent(RegExp(`${testMovie.name}`, 'i'));
-});
-
-test('should render movie release year', () => {
-  const { getByTestId } = render(<MovieTile movie={testMovie} onClick={() => {}} />);
   expect(getByTestId('release-year')).toHaveTextContent(`${testMovie.releaseYear}`);
 });
 
-test('should render a list of genres', () => {
-  const testMovieWithGenres: IMovie = {
+test('should render a capitalized list of genres', () => {
+  const testMovieWithGenres: Movie = {
     ...testMovie,
     genres: ['genre a', 'genre b', 'genre c'],
   };
-  const { getByTestId } = render(<MovieTile movie={testMovieWithGenres} onClick={() => {}} />);
+  const { getByTestId } = render(<MovieTile movie={testMovieWithGenres} onClick={jest.fn()} />);
   expect(getByTestId('genres')).toHaveTextContent('Genre A, Genre B, Genre C');
 });
 
-test('should render an image', () => {
-  const { getByRole } = render(<MovieTile movie={testMovie} onClick={() => {}} />);
-  expect(getByRole('img')).toHaveAttribute('src', testMovie.imageUrl);
+test('should render genres with special characters', () => {
+  const testMovieWithGenres: Movie = {
+    ...testMovie,
+    genres: ['genre & character'],
+  };
+  const { getByTestId } = render(<MovieTile movie={testMovieWithGenres} onClick={jest.fn()} />);
+  expect(getByTestId('genres')).toHaveTextContent('Genre & Character');
 });
 
 test('should execute a custom callback on click event', () => {
