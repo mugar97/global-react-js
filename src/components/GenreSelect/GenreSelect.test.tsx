@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { act, render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import GenreFilter from './GenreFilter';
+import GenreSelect from './GenreSelect';
 
 test('renders in uppercase all genres passed in props', () => {
   const { getByText } = render(
-    <GenreFilter genres={['x', 'y', 'z']} initialGenre={''} onSelect={() => {}} />
+    <GenreSelect genres={['x', 'y', 'z']} initialGenre={''} onSelect={() => {}} />
   );
   expect(getByText('ALL')).toBeInTheDocument();
   expect(getByText('X')).toBeInTheDocument();
@@ -13,12 +13,12 @@ test('renders in uppercase all genres passed in props', () => {
   expect(getByText('Z')).toBeInTheDocument();
 });
 test('renders "ALL" option for empty genres passed in props', () => {
-  const { getByText } = render(<GenreFilter genres={[]} initialGenre={''} onSelect={() => {}} />);
+  const { getByText } = render(<GenreSelect genres={[]} initialGenre={''} onSelect={() => {}} />);
   expect(getByText('ALL')).toBeInTheDocument();
 });
 test('highlights a selected genre passed in props', () => {
   const { getByText } = render(
-    <GenreFilter genres={['a', 'b']} initialGenre={'b'} onSelect={() => {}} />
+    <GenreSelect genres={['a', 'b']} initialGenre={'b'} onSelect={() => {}} />
   );
   expect(getByText('ALL')).not.toHaveClass('active');
   expect(getByText('A')).not.toHaveClass('active');
@@ -26,7 +26,7 @@ test('highlights a selected genre passed in props', () => {
 });
 test('highlights "all" when genre passed in props is not in genres', () => {
   const { getByText } = render(
-    <GenreFilter genres={['a', 'b']} initialGenre={''} onSelect={() => {}} />
+    <GenreSelect genres={['a', 'b']} initialGenre={''} onSelect={() => {}} />
   );
   expect(getByText('ALL')).toHaveClass('active');
   expect(getByText('A')).not.toHaveClass('active');
@@ -35,7 +35,7 @@ test('highlights "all" when genre passed in props is not in genres', () => {
 test('after a click event on a genre button component calls "onChange" callback and passes correct genre in arguments', () => {
   const onChange = jest.fn();
   const { getByText } = render(
-    <GenreFilter genres={['a']} initialGenre={''} onSelect={onChange} />
+    <GenreSelect genres={['a']} initialGenre={''} onSelect={onChange} />
   );
   act(() => {
     userEvent.click(getByText('A'));

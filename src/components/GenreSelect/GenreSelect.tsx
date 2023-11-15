@@ -1,19 +1,20 @@
 import React from 'react';
+import './GenreSelect.scss';
 
-interface GenreFilterProps {
+interface GenreSelectProps {
   genres: string[];
   initialGenre: string;
   onSelect: (genre: string) => void;
 }
 
-interface GenreFilterState {
+interface GenreSelectState {
   selectedGenre: string;
 }
 
-export class GenreFilter extends React.Component<GenreFilterProps> {
-  state: GenreFilterState;
+export class GenreSelect extends React.Component<GenreSelectProps, GenreSelectState> {
+  state: GenreSelectState;
 
-  constructor(props: GenreFilterProps) {
+  constructor(props: GenreSelectProps) {
     super(props);
     this.state = {
       selectedGenre: props.initialGenre ? props.initialGenre.toLowerCase() : 'all',
@@ -31,8 +32,8 @@ export class GenreFilter extends React.Component<GenreFilterProps> {
   render() {
     const { genres } = this.props;
     return (
-      <div id='genreFilter'>
-        <ul>
+      <>
+        <ul className='genreSelect'>
           <li
             key='all'
             className={`${this.state.selectedGenre === 'all' ? 'active' : ''}`}
@@ -53,9 +54,9 @@ export class GenreFilter extends React.Component<GenreFilterProps> {
             );
           })}
         </ul>
-      </div>
+      </>
     );
   }
 }
 
-export default GenreFilter;
+export default GenreSelect;

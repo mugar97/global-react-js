@@ -1,0 +1,30 @@
+@import '../../../variables';
+@import '../../../mixins';
+
+.button {
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1;
+  padding: 1em 3em;
+  text-transform: uppercase;
+
+  &--primary {
+    color: $color-main-text;
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+  }
+  &--secondary {
+    color: $color-primary;
+    background-color: $color-dark-background;
+    border: 1px solid $color-primary;
+  }
+  &--tertiary {
+    color: $color-primary;
+    font-weight: 600;
+    background-color: $color-transparent-white;
+    padding: 1em 1em;
+  }
+}

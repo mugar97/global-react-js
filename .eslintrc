@@ -22,7 +22,9 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "eol-last": ["error", "always"]
+    "eol-last": ["error", "always"],
+    "np-empty-function": "off",
+    "@typescript-eslint/no-empty-function": 0
   },
   "settings": {
     "import/resolver": {

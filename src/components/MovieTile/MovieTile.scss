@@ -1,0 +1,45 @@
+@import '../../variables';
+@import '../../mixins';
+
+$tile-img-min-width: 322px;
+$tile-img-min-height: 455px;
+$year-width: 66px;
+
+.MovieTile {
+  width: $tile-img-min-width;
+  @include clickable;
+  @include prevent-select;
+
+  &__image {
+    width: 100%;
+    height: $tile-img-min-height;
+    object-fit: cover;
+    margin-bottom: 0.6em;
+  }
+
+  &__title {
+    width: calc(100% - $year-width - 2px);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: $color-movie-tile-title;
+    display: inline-block;
+  }
+
+  &__year {
+    width: $year-width;
+    height: 26px;
+    border: 1px solid $color-palette-light-gray;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+    color: $color-movie-tile-title;
+    display: inline-block;
+  }
+
+  &__genres {
+    font-weight: 500;
+    font-size: 14px;
+    color: $color-movie-genres;
+  }
+}
